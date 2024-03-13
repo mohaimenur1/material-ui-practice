@@ -22,6 +22,8 @@ import Grid from "@mui/material/Grid";
 import { TbMessage2Down } from "react-icons/tb";
 import Divider from "@mui/material/Divider";
 import CircularProgress from "@mui/material/CircularProgress";
+import ProgressBar from "@ramonak/react-progress-bar";
+import ProgressLine from "@/component/ProgressLine";
 
 export default function RecipeReviewCard() {
   return (
@@ -175,111 +177,42 @@ export default function RecipeReviewCard() {
       <Grid item xs={4}>
         <Card sx={{ padding: "1rem" }}>
           <Typography variant="h5">Subject wise progress</Typography>
+
           <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
+            sx={
+              {
+                // display: "flex",
+                // alignItems: "center",
+                // justifyContent: "space-between",
+              }
+            }
           >
-            <Typography sx={{ mr: "1rem" }}>Math</Typography>
-            <Box>
-              <div
-                style={{
-                  position: "relative",
-                  padding: ".25rem",
-                }}
-              >
-                <progress
-                  value={0.7}
-                  style={{
-                    padding: "1rem",
-                    // width: "100%",
-                  }}
-                ></progress>
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    color: "white",
-                  }}
-                >
-                  50%
-                </div>
-              </div>
-            </Box>
+            <Typography>Math</Typography>
+            <ProgressLine progress={65} />
           </Box>
           <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-          >
-            <Typography>English</Typography>
-            <Box>
-              <div
-                style={{
-                  position: "relative",
-                  padding: ".25rem",
-                }}
-              >
-                <progress
-                  value={0.7}
-                  style={{
-                    padding: "1rem",
-                  }}
-                ></progress>
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    color: "white",
-                  }}
-                >
-                  50%
-                </div>
-              </div>
-            </Box>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
+            sx={
+              {
+                // display: "flex",
+                // alignItems: "center",
+                // justifyContent: "space-between",
+              }
+            }
           >
             <Typography>Bangla</Typography>
-            <Box>
-              <div
-                style={{
-                  position: "relative",
-                  padding: ".25rem",
-                }}
-              >
-                <progress
-                  value={0.7}
-                  style={{
-                    padding: "1rem",
-                  }}
-                ></progress>
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    color: "white",
-                  }}
-                >
-                  50%
-                </div>
-              </div>
-            </Box>
+            <ProgressLine progress={85} />
+          </Box>
+          <Box
+            sx={
+              {
+                // display: "flex",
+                // alignItems: "center",
+                // justifyContent: "space-between",
+              }
+            }
+          >
+            <Typography>English</Typography>
+            <ProgressLine progress={45} />
           </Box>
         </Card>
       </Grid>
