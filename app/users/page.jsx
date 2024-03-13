@@ -24,6 +24,7 @@ import Divider from "@mui/material/Divider";
 import CircularProgress from "@mui/material/CircularProgress";
 import ProgressBar from "@ramonak/react-progress-bar";
 import ProgressLine from "@/component/ProgressLine";
+import CircularProgressBar from "@/component/CircularProgressBar";
 
 export default function RecipeReviewCard() {
   return (
@@ -143,32 +144,63 @@ export default function RecipeReviewCard() {
         </Card>
       </Grid>
       <Grid item xs={4}>
-        <Card>
+        <Card sx={{ padding: "1rem" }}>
           <Typography variant="h5">Attendance</Typography>
-          <Typography>
-            Dear Henderson, Your Attendance is 75% in the last month.
-          </Typography>
-          <Box sx={{ position: "relative", display: "inline-flex" }}>
-            <CircularProgress variant="determinate" value={75} />
-            <Box
-              sx={{
-                top: 0,
-                left: 0,
-                bottom: 0,
-                right: 0,
-                position: "absolute",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Typography
-                variant="caption"
-                component="div"
-                color="text.secondary"
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Typography>
+              Dear Henderson, Your Attendance is 75% in the last month.
+            </Typography>
+            <Box sx={{ position: "relative", display: "inline-flex" }}>
+              <CircularProgress
+                variant="determinate"
+                sx={{
+                  color: "#989898",
+                }}
+                size={100}
+                thickness={10}
+                value={100}
+              />
+              <CircularProgress
+                disableShrink
+                variant="determinate"
+                sx={{
+                  color: "#1a90ff",
+                  position: "absolute",
+                  left: 0,
+                  "& .MuiCircularProgress-root": {
+                    transition: "none",
+                  },
+                }}
+                size={100}
+                thickness={10}
+                value={78}
+              />
+              <Box
+                sx={{
+                  top: 0,
+                  left: 0,
+                  bottom: 0,
+                  right: 0,
+                  position: "absolute",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
               >
-                {`75%`}
-              </Typography>
+                <Typography
+                  variant="caption"
+                  component="div"
+                  color="text.secondary"
+                >
+                  {`75%`}
+                </Typography>
+              </Box>
             </Box>
           </Box>
         </Card>
