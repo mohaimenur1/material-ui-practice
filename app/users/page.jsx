@@ -179,6 +179,7 @@ export default function RecipeReviewCard() {
             sx={{
               display: "flex",
               alignItems: "center",
+              justifyContent: "space-between",
             }}
           >
             <Typography sx={{ mr: "1rem" }}>Math</Typography>
@@ -214,6 +215,7 @@ export default function RecipeReviewCard() {
             sx={{
               display: "flex",
               alignItems: "center",
+              justifyContent: "space-between",
             }}
           >
             <Typography>English</Typography>
@@ -248,6 +250,7 @@ export default function RecipeReviewCard() {
             sx={{
               display: "flex",
               alignItems: "center",
+              justifyContent: "space-between",
             }}
           >
             <Typography>Bangla</Typography>
