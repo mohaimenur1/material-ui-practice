@@ -216,7 +216,7 @@ export default function RecipeReviewCard() {
                   }}
                 >
                   <Typography
-                    variant="caption"
+                    variant="h6"
                     component="div"
                     color="text.secondary"
                   >
