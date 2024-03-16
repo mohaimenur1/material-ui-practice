@@ -28,8 +28,14 @@ import CircularProgressBar from "@/component/CircularProgressBar";
 
 export default function RecipeReviewCard() {
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={6} mt={2}>
+    <Grid
+      container
+      spacing={2}
+      sx={{
+        marginTop: "1px",
+      }}
+    >
+      <Grid item xs={12} sm={12} md={12} lg={6}>
         <Card
           sx={{
             display: "flex",
@@ -67,7 +73,7 @@ export default function RecipeReviewCard() {
           </Card>
         </Card>
       </Grid>
-      <Grid item xs={6} mt={2}>
+      <Grid item xs={12} sm={12} md={12} lg={6}>
         <Card sx={{ padding: "1rem", height: "160px" }}>
           <Typography variant="h5">Notice Board</Typography>
           <Box sx={{ display: "flex" }}>
@@ -96,7 +102,7 @@ export default function RecipeReviewCard() {
           </Box>
         </Card>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={12} md={12} lg={4}>
         <Card sx={{ padding: "1rem", height: "100%" }}>
           <Typography variant="h5">Class Routine</Typography>
           <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -143,7 +149,7 @@ export default function RecipeReviewCard() {
           </Box>
         </Card>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={12} md={12} lg={4}>
         <Card sx={{ padding: "1rem", height: "100%" }}>
           <Typography variant="h5">Attendance</Typography>
           <Grid
@@ -286,45 +292,47 @@ export default function RecipeReviewCard() {
         </Card>
       </Grid>
       {/* subject wise progress */}
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={12} md={12} lg={4}>
         <Card sx={{ padding: "1rem", height: "100%" }}>
           <Typography variant="h5">Subject wise progress</Typography>
 
-          <Box
-            sx={
-              {
-                // display: "flex",
-                // alignItems: "center",
-                // justifyContent: "space-between",
+          <Box>
+            <Box
+              sx={
+                {
+                  // display: "flex",
+                  // alignItems: "center",
+                  // justifyContent: "space-between",
+                }
               }
-            }
-          >
-            <Typography>Math</Typography>
-            <ProgressLine progress={65} />
-          </Box>
-          <Box
-            sx={
-              {
-                // display: "flex",
-                // alignItems: "center",
-                // justifyContent: "space-between",
+            >
+              <Typography>Math</Typography>
+              <ProgressLine progress={65} />
+            </Box>
+            <Box
+              sx={
+                {
+                  // display: "flex",
+                  // alignItems: "center",
+                  // justifyContent: "space-between",
+                }
               }
-            }
-          >
-            <Typography>Bangla</Typography>
-            <ProgressLine progress={85} />
-          </Box>
-          <Box
-            sx={
-              {
-                // display: "flex",
-                // alignItems: "center",
-                // justifyContent: "space-between",
+            >
+              <Typography>Bangla</Typography>
+              <ProgressLine progress={85} />
+            </Box>
+            <Box
+              sx={
+                {
+                  // display: "flex",
+                  // alignItems: "center",
+                  // justifyContent: "space-between",
+                }
               }
-            }
-          >
-            <Typography>English</Typography>
-            <ProgressLine progress={45} />
+            >
+              <Typography>English</Typography>
+              <ProgressLine progress={45} />
+            </Box>
           </Box>
         </Card>
       </Grid>
