@@ -97,7 +97,7 @@ export default function RecipeReviewCard() {
         </Card>
       </Grid>
       <Grid item xs={4}>
-        <Card sx={{ padding: "1rem" }}>
+        <Card sx={{ padding: "1rem", height: "100%" }}>
           <Typography variant="h5">Class Routine</Typography>
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             <Typography gutterBottom variant="body1" component="div">
@@ -144,9 +144,81 @@ export default function RecipeReviewCard() {
         </Card>
       </Grid>
       <Grid item xs={4}>
-        <Card sx={{ padding: "1rem" }}>
+        <Card sx={{ padding: "1rem", height: "100%" }}>
           <Typography variant="h5">Attendance</Typography>
-          <Box
+          <Grid
+            container
+            spacing={2}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Grid item xs={6}>
+              <Typography variant="h6">
+                Dear Henderson, Your Attendance is 75% in the last month.
+              </Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Box
+                sx={{
+                  position: "relative",
+                  display: "inline-flex",
+                  height: "100%",
+                }}
+              >
+                <CircularProgress
+                  variant="determinate"
+                  sx={{
+                    color: "#989898",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                  size={200}
+                  thickness={10}
+                  value={100}
+                />
+                <CircularProgress
+                  disableShrink
+                  variant="determinate"
+                  sx={{
+                    color: "#1a90ff",
+                    position: "absolute",
+                    left: 0,
+                    "& .MuiCircularProgress-root": {
+                      transition: "none",
+                    },
+                  }}
+                  size={200}
+                  thickness={10}
+                  value={75}
+                />
+                <Box
+                  sx={{
+                    top: 0,
+                    left: 0,
+                    bottom: 0,
+                    right: 0,
+                    position: "absolute",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Typography
+                    variant="caption"
+                    component="div"
+                    color="text.secondary"
+                  >
+                    {`75%`}
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
+          </Grid>
+          {/* <Box
             sx={{
               display: "flex",
               justifyContent: "space-between",
@@ -179,7 +251,7 @@ export default function RecipeReviewCard() {
                 }}
                 size={100}
                 thickness={10}
-                value={78}
+                value={75}
               />
               <Box
                 sx={{
@@ -202,12 +274,12 @@ export default function RecipeReviewCard() {
                 </Typography>
               </Box>
             </Box>
-          </Box>
+          </Box> */}
         </Card>
       </Grid>
       {/* subject wise progress */}
       <Grid item xs={4}>
-        <Card sx={{ padding: "1rem" }}>
+        <Card sx={{ padding: "1rem", height: "100%" }}>
           <Typography variant="h5">Subject wise progress</Typography>
 
           <Box
