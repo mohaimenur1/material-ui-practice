@@ -160,7 +160,15 @@ export default function RecipeReviewCard() {
                 Dear Henderson, Your Attendance is 75% in the last month.
               </Typography>
             </Grid>
-            <Grid item xs={6}>
+            <Grid
+              item
+              xs={6}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <Box
                 sx={{
                   position: "relative",
