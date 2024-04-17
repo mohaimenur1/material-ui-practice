@@ -28,7 +28,7 @@ import CircularProgressBar from "@/component/CircularProgressBar";
 
 export default function RecipeReviewCard() {
   return (
-    // this is for testing
+    // fill in the gap
     <Grid
       container
       spacing={2}
