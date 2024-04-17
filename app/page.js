@@ -15,6 +15,7 @@ export default async function page() {
         hello {session && session.user?.email}
       </Typography>
       <DayPicker />
+      {/* 2nd */}
 
       {/* <Box sx={{ mt: "10rem" }}>
         <AllTodos />
