@@ -27,8 +27,7 @@ import ProgressLine from "@/component/ProgressLine";
 import CircularProgressBar from "@/component/CircularProgressBar";
 
 export default function RecipeReviewCard() {
-  return (
-    // now
+  return ( main
     <Grid
       container
       spacing={2}
