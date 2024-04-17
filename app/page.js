@@ -9,6 +9,7 @@ export default async function page() {
   const session = await getServerSession(authOptions);
   return (
     <>
+      {/* test */}
       <Typography variant="h3" sx={{ textAlign: "center", mt: "30px" }}>
         {/* session for getting the users data to enableing the authentication process */}
         Hello {session && session.user?.name}
