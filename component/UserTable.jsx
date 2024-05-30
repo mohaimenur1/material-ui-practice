@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -6,189 +7,104 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { FaEdit } from "react-icons/fa";
-import { MdDeleteForever } from "react-icons/md";
-import { Box, Typography } from "@mui/material";
-import Stack from "@mui/material/Stack";
-import Link from "next/link";
-import Image from "next/image";
-import QRCode from "react-qr-code";
 
-const allUsers = async () => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/users");
-  const users = await response.json();
-  return users;
-};
+const styles = StyleSheet.create({
+  page: {
+    padding: 30,
+    backgroundColor: "#E4E4E4",
+  },
+  table: {
+    display: "table",
+    width: "auto",
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: "#000",
+    borderRightWidth: 0,
+    borderBottomWidth: 0,
+  },
+  tableRow: {
+    flexDirection: "row",
+  },
+  tableColHeader: {
+    width: "20%",
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: "#000",
+    borderLeftWidth: 0,
+    borderTopWidth: 0,
+    backgroundColor: "#EEE",
+    padding: 5,
+    fontWeight: "bold",
+  },
+  tableCol: {
+    width: "20%",
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: "#000",
+    borderLeftWidth: 0,
+    borderTopWidth: 0,
+    padding: 5,
+  },
+  tableCell: {
+    margin: "auto",
+    fontSize: 10,
+  },
+});
 
-const userImages = [
-  { image: "https://randomuser.me/api/portraits/men/76.jpg" },
-  { image: "https://randomuser.me/api/portraits/men/77.jpg" },
-  { image: "https://randomuser.me/api/portraits/men/78.jpg" },
-  { image: "https://randomuser.me/api/portraits/men/79.jpg" },
-  { image: "https://randomuser.me/api/portraits/men/80.jpg" },
-  { image: "https://randomuser.me/api/portraits/men/81.jpg" },
-  { image: "https://randomuser.me/api/portraits/men/82.jpg" },
-  { image: "https://randomuser.me/api/portraits/men/83.jpg" },
-  { image: "https://randomuser.me/api/portraits/men/84.jpg" },
-  { image: "https://randomuser.me/api/portraits/men/85.jpg" },
-];
+import {
+  Document,
+  Page,
+  Text,
+  View,
+  StyleSheet,
+  PDFDownloadLink,
+} from "@react-pdf/renderer";
 
-const im = userImages.map((image) => image.image);
-
-export default async function UserTable() {
-  const rows = await allUsers();
-
-  const qrCodeData = rows.map((qrData) => qrData);
-
-  function createData(id, photo, name, email, phone, company, website) {
-    return { id, photo, name, email, phone, company, website };
+function PdfTable() {
+  function createData(name, calories, fat, carbs, protein) {
+    return { name, calories, fat, carbs, protein };
   }
 
-  const users = rows?.map((user) => {
-    return createData(
-      user.id,
-      im,
-      user.name,
-      user.email,
-      user.phone,
-      user["company"].name,
-      user.website
-    );
-  });
-
+  const rows = [
+    createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+    createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
+    createData("Eclair", 262, 16.0, 24, 6.0),
+    createData("Cupcake", 305, 3.7, 67, 4.3),
+    createData("Gingerbread", 356, 16.0, 49, 3.9),
+  ];
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell sx={{ fontWeight: "bold" }}>SL</TableCell>
-            <TableCell sx={{ fontWeight: "bold" }}>Photo</TableCell>
-            <TableCell sx={{ fontWeight: "bold" }}>Student Info</TableCell>
-            <TableCell sx={{ fontWeight: "bold" }}>Guardian Details</TableCell>
-            <TableCell sx={{ fontWeight: "bold" }}>QR</TableCell>
-            <TableCell sx={{ fontWeight: "bold" }} align="right">
-              Actions
-            </TableCell>
-          </TableRow>
-        </TableHead>
-
-        <TableBody>
-          {users?.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.id}
-              </TableCell>
-              <TableCell align="left" component="th" scope="row">
-                <Box sx={{ display: "flex" }}>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Image
-                      src={im[0]}
-                      width={80}
-                      height={100}
-                      alt="Picture of the author"
-                    ></Image>
-                    <Typography
-                      sx={{ textAlign: "left", marginTop: "10px" }}
-                      variant="subtitle1"
-                    >
-                      ID: {row.id}
-                    </Typography>
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                      marginLeft: "20px",
-                    }}
-                  >
-                    <Typography
-                      variant="subtitle1"
-                      sx={{
-                        width: "25px",
-                        height: "25px",
-                        textAlign: "center",
-                        borderRadius: "50%",
-                        background: "#bbb",
-                      }}
-                    >
-                      P
-                    </Typography>
-                    <Typography
-                      variant="subtitle1"
-                      sx={{
-                        width: "25px",
-                        height: "25px",
-                        textAlign: "center",
-                        borderRadius: "50%",
-                        background: "#bbb",
-                      }}
-                    >
-                      P
-                    </Typography>
-                    <Typography
-                      variant="subtitle1"
-                      sx={{
-                        width: "25px",
-                        height: "25px",
-                        textAlign: "center",
-                        borderRadius: "50%",
-                        background: "#bbb",
-                      }}
-                    >
-                      P
-                    </Typography>
-                  </Box>
-                </Box>
-              </TableCell>
-              <TableCell component="th">
-                <Box sx={{ display: "flex", flexDirection: "column" }}>
-                  <Typography variant="subtitle1">{row.name}</Typography>
-                  <Typography variant="subtitle1">{row.email}</Typography>
-                  <Typography variant="subtitle1">{row.phone}</Typography>
-                  <Typography variant="subtitle1">{row.company}</Typography>
-                  <Typography variant="subtitle1">{row.website}</Typography>
-                </Box>
-              </TableCell>
-              <TableCell component="th">
-                <Box sx={{ display: "flex", flexDirection: "column" }}>
-                  <Typography variant="subtitle1">{row.name}</Typography>
-                  <Typography variant="subtitle1">{row.email}</Typography>
-                  <Typography variant="subtitle1">{row.phone}</Typography>
-                  <Typography variant="subtitle1">{row.company}</Typography>
-                  <Typography variant="subtitle1">{row.website}</Typography>
-                </Box>
-              </TableCell>
-              <TableCell component="th">
-                <Box sx={{ display: "flex", flexDirection: "column" }}>
-                  <QRCode
-                    value={`Name: ${row.name}\nemail: ${row.email}\nphone: ${row.phone}`}
-                    size="100"
-                  />
-                </Box>
-              </TableCell>
-              <TableCell align="right">
-                <Link href={`/users/user-table/${row.id}`}>
-                  <FaEdit
-                    //   onClick={() => handleIdCheck(row.id)}
-                    style={{ width: "20px", height: "20px", cursor: "pointer" }}
-                  ></FaEdit>{" "}
-                </Link>
-                <MdDeleteForever style={{ width: "20px", height: "20px" }} />
-              </TableCell>
-            </TableRow>
+    <Document>
+      <Page>
+        <View style={styles.table}>
+          <View style={styles.tableRow}>
+            <Text style={styles.tableColHeader}>Dessert (100g serving)</Text>
+            <Text style={styles.tableColHeader}>Calories</Text>
+            <Text style={styles.tableColHeader}>Fat&nbsp;(g)</Text>
+            <Text style={styles.tableColHeader}>Carbs&nbsp;(g)</Text>
+            <Text style={styles.tableColHeader}>Protein&nbsp;(g)</Text>
+          </View>
+          {rows.map((row, index) => (
+            <View style={styles.tableRow} key={index}>
+              <Text style={styles.tableCol}>{row.name}</Text>
+              <Text style={styles.tableCol}>{row.calories}</Text>
+              <Text style={styles.tableCol}>{row.fat}</Text>
+              <Text style={styles.tableCol}>{row.carbs}</Text>
+              <Text style={styles.tableCol}>{row.protein}</Text>
+            </View>
           ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+        </View>
+      </Page>
+    </Document>
   );
 }
+
+export const BasicTable = () => (
+  <div>
+    <PDFDownloadLink document={<PdfTable />} fileName="somename.pdf">
+      {({ blob, url, loading, error }) =>
+        loading ? "Loading document..." : "Download now!"
+      }
+    </PDFDownloadLink>
+    {/* <PdfTable /> */}
+  </div>
+);

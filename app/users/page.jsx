@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
@@ -14,7 +15,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Modal } from "@mui/material";
 
 import { FaAward } from "react-icons/fa6";
 import Paper from "@mui/material/Paper";
@@ -25,8 +26,34 @@ import CircularProgress from "@mui/material/CircularProgress";
 import ProgressBar from "@ramonak/react-progress-bar";
 import ProgressLine from "@/component/ProgressLine";
 import CircularProgressBar from "@/component/CircularProgressBar";
+import { PDFObject } from "react-pdfobject";
+import { Document, Page } from "react-pdf";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
+// pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 export default function RecipeReviewCard() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const pdfContainer = React.useRef();
+
+  const pdfOpen = () => {
+    handleOpen();
+  };
+
   return (
     <Grid
       container
@@ -335,6 +362,34 @@ export default function RecipeReviewCard() {
             </Box>
           </Box>
         </Card>
+      </Grid>
+      <Grid item lg={12}>
+        <div>
+          <Button onClick={pdfOpen}>Open modal</Button>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              {/* <PDFObject url="https://api.arya.ai/images/test.pdf" /> */}
+              {/* <iframe
+                title="PDF Viewer"
+                src="https://api.arya.ai/images/test.pdf"
+                style={{ width: "100%", height: "500px", border: "none" }}
+              /> */}
+              {/* <Document
+                file="https://api.arya.ai/images/test.pdf"
+                // onLoadSuccess={onDocumentLoadSuccess}
+                // options={options}
+                renderMode="canvas"
+                className=""
+              ></Document> */}
+              <Document file="https://api.arya.ai/images/test.pdf"></Document>
+            </Box>
+          </Modal>
+        </div>
       </Grid>
     </Grid>
   );
