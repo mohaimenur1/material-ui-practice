@@ -60,7 +60,7 @@ import {
   PDFDownloadLink,
 } from "@react-pdf/renderer";
 
-function PdfTable() {
+export default function PdfTable() {
   function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
   }
@@ -74,7 +74,7 @@ function PdfTable() {
   ];
   return (
     <Document>
-      <Page>
+      <Page size={"A4"}>
         <View style={styles.table}>
           <View style={styles.tableRow}>
             <Text style={styles.tableColHeader}>Dessert (100g serving)</Text>

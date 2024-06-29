@@ -27,7 +27,7 @@ import ProgressBar from "@ramonak/react-progress-bar";
 import ProgressLine from "@/component/ProgressLine";
 import CircularProgressBar from "@/component/CircularProgressBar";
 import { PDFObject } from "react-pdfobject";
-import { Document, Page } from "react-pdf";
+import { Document, Page, pdfjs } from "react-pdf";
 
 const style = {
   position: "absolute",
@@ -42,6 +42,13 @@ const style = {
 };
 
 // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+// pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+// const pdfjs = await import("pdfjs-dist/build/pdf");
+// const pdfjsWorker = await import("pdfjs-dist/build/pdf.worker.entry");
+
+// pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 export default function RecipeReviewCard() {
   const [open, setOpen] = React.useState(false);
@@ -375,19 +382,20 @@ export default function RecipeReviewCard() {
           >
             <Box sx={style}>
               {/* <PDFObject url="https://api.arya.ai/images/test.pdf" /> */}
-              {/* <iframe
+              <iframe
                 title="PDF Viewer"
                 src="https://api.arya.ai/images/test.pdf"
                 style={{ width: "100%", height: "500px", border: "none" }}
-              /> */}
+              />
               {/* <Document
                 file="https://api.arya.ai/images/test.pdf"
                 // onLoadSuccess={onDocumentLoadSuccess}
                 // options={options}
                 renderMode="canvas"
                 className=""
+                onError={(error) => console.error("Error loading PDF:", error)}
               ></Document> */}
-              <Document file="https://api.arya.ai/images/test.pdf"></Document>
+              {/* <Document file="https://api.arya.ai/images/test.pdf"></Document> */}
             </Box>
           </Modal>
         </div>
