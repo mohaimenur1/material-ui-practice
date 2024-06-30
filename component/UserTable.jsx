@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     borderRightWidth: 0,
     borderBottomWidth: 0,
+    textAlign: "center",
   },
   tableRow: {
     flexDirection: "row",
@@ -32,9 +33,6 @@ const styles = StyleSheet.create({
     padding: 5,
     fontWeight: "bold",
     fontSize: "10px",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
   },
   tableCol: {
     width: "100%",
@@ -52,6 +50,7 @@ const styles = StyleSheet.create({
   },
   tableSeparation: {
     flexDirection: "row",
+    // display: "flex",
   },
   heading: {
     // display: "flex",
