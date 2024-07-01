@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     borderRightWidth: 0,
     borderBottomWidth: 0,
-    textAlign: "center",
   },
   tableRow: {
     flexDirection: "row",
@@ -33,6 +32,7 @@ const styles = StyleSheet.create({
     padding: 5,
     fontWeight: "bold",
     fontSize: "10px",
+    textAlign: "center",
   },
   tableCol: {
     width: "100%",
@@ -43,14 +43,106 @@ const styles = StyleSheet.create({
     borderTopWidth: 0,
     padding: 5,
     fontSize: "7px",
+    textAlign: "center",
   },
   tableCell: {
     margin: "auto",
     fontSize: 10,
+    textAlign: "center",
   },
-  tableSeparation: {
+  //------------ second table start --------------
+  table2: {
+    display: "table",
+    width: "100%",
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: "#000",
+    borderRightWidth: 0,
+    borderBottomWidth: 0,
+  },
+  tableRow2: {
     flexDirection: "row",
+  },
+  tableColHeader2: {
+    width: "100%",
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: "#000",
+    borderLeftWidth: 0,
+    borderTopWidth: 0,
+    backgroundColor: "#EEE",
+    padding: 5,
+    fontWeight: "bold",
+    fontSize: "10px",
+    // textAlign: "center",
+  },
+  tableCol2: {
+    width: "100%",
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: "#000",
+    borderLeftWidth: 0,
+    borderTopWidth: 0,
+    padding: 5,
+    fontSize: "7px",
+    // textAlign: "center",
+  },
+  tableCell2: {
+    margin: "auto",
+    fontSize: 10,
+    // textAlign: "center",
+  },
+  //------------ second table end --------------
+
+  //------------ third table start --------------
+  table3: {
+    display: "table",
+    width: "100%",
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: "#000",
+    borderRightWidth: 0,
+    borderBottomWidth: 0,
+  },
+  tableRow3: {
+    flexDirection: "row",
+  },
+  tableColHeader3: {
+    width: "100%",
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: "#000",
+    borderLeftWidth: 0,
+    borderTopWidth: 0,
+    backgroundColor: "#EEE",
+    padding: 5,
+    fontWeight: "bold",
+    fontSize: "10px",
+    // textAlign: "center",
+  },
+  tableCol3: {
+    width: "100%",
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: "#000",
+    borderLeftWidth: 0,
+    borderTopWidth: 0,
+    padding: 5,
+    fontSize: "7px",
+    // textAlign: "center",
+  },
+  tableCell3: {
+    margin: "auto",
+    fontSize: 10,
+  },
+  tableTitle3: {
+    textAlign: "center",
+  },
+  //------------ third table end --------------
+
+  tableSeparation: {
     // display: "flex",
+    flexDirection: "row",
   },
   heading: {
     // display: "flex",
@@ -204,7 +296,7 @@ export default function PdfTable() {
           </View>
           <View></View>
         </View>
-        {/* table */}
+        {/* table 1*/}
         <View style={styles.tableContainer}>
           <View style={styles.table}>
             <View style={styles.tableRow}>
@@ -235,36 +327,38 @@ export default function PdfTable() {
         </View>
         {/* out status & present status */}
         <View style={styles.tableSeparation}>
+          {/* table 2.1 */}
           <View style={styles.tableContainer}>
-            <View style={styles.table}>
-              <View style={styles.tableRow}>
-                <Text style={styles.tableColHeader}>OUT STATUS</Text>
+            <View style={styles.table2}>
+              <View style={styles.tableRow2}>
+                <Text style={styles.tableColHeader2}>OUT STATUS</Text>
               </View>
-              <View style={styles.tableRow}>
-                <Text style={styles.tableColHeader}>STATUS</Text>
-                <Text style={styles.tableColHeader}>TOTAL</Text>
+              <View style={styles.tableRow2}>
+                <Text style={styles.tableColHeader2}>STATUS</Text>
+                <Text style={styles.tableColHeader2}>TOTAL</Text>
               </View>
               {row2.map((row, index) => (
-                <View style={styles.tableRow} key={index}>
-                  <Text style={styles.tableCol}>{row.status}</Text>
-                  <Text style={styles.tableCol}>{row.total}</Text>
+                <View style={styles.tableRow2} key={index}>
+                  <Text style={styles.tableCol2}>{row.status}</Text>
+                  <Text style={styles.tableCol2}>{row.total}</Text>
                 </View>
               ))}
             </View>
           </View>
+          {/* table 2.2 */}
           <View style={styles.tableContainer}>
-            <View style={styles.table}>
-              <View style={styles.tableRow}>
-                <Text style={styles.tableColHeader}>PRESENT STATUS</Text>
+            <View style={styles.table3}>
+              <View style={styles.tableRow3}>
+                <Text style={styles.tableColHeader3}>PRESENT STATUS</Text>
               </View>
-              <View style={styles.tableRow}>
-                <Text style={styles.tableColHeader}>STATUS</Text>
-                <Text style={styles.tableColHeader}>TOTAL</Text>
+              <View style={styles.tableRow3}>
+                <Text style={styles.tableColHeader3}>STATUS</Text>
+                <Text style={styles.tableColHeader3}>TOTAL</Text>
               </View>
-              {row3.map((row, index) => (
-                <View style={styles.tableRow} key={index}>
-                  <Text style={styles.tableCol}>{row.status}</Text>
-                  <Text style={styles.tableCol}>{row.total}</Text>
+              {row2.map((row, index) => (
+                <View style={styles.tableRow3} key={index}>
+                  <Text style={styles.tableCol3}>{row.status}</Text>
+                  <Text style={styles.tableCol3}>{row.total}</Text>
                 </View>
               ))}
             </View>
