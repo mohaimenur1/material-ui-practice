@@ -1,6 +1,16 @@
 "use client";
 import * as React from "react";
 
+import {
+  Document,
+  Page,
+  Text,
+  View,
+  Font,
+  StyleSheet,
+  PDFDownloadLink,
+} from "@react-pdf/renderer";
+
 const styles = StyleSheet.create({
   page: {
     padding: 30,
@@ -116,9 +126,10 @@ const styles = StyleSheet.create({
     borderTopWidth: 0,
     backgroundColor: "#EEE",
     padding: 5,
-    fontWeight: "bold",
+    // fontWeight: "bold",
     fontSize: "10px",
-    // textAlign: "center",
+    alignItems: "center",
+    justifyContent: "center",
   },
   tableCol3: {
     width: "100%",
@@ -129,7 +140,6 @@ const styles = StyleSheet.create({
     borderTopWidth: 0,
     padding: 5,
     fontSize: "7px",
-    // textAlign: "center",
   },
   tableCell3: {
     margin: "auto",
@@ -164,16 +174,16 @@ const styles = StyleSheet.create({
     padding: "10px",
     fontSize: "10px",
   },
+  name: {
+    marginLeft: 20,
+  },
+  id: {
+    paddingLeft: 20,
+  },
+  desing: {
+    paddingLeft: 25,
+  },
 });
-
-import {
-  Document,
-  Page,
-  Text,
-  View,
-  StyleSheet,
-  PDFDownloadLink,
-} from "@react-pdf/renderer";
 
 export default function PdfTable() {
   function createData(
@@ -252,16 +262,6 @@ export default function PdfTable() {
       "09:03:56",
       "habi jabi"
     ),
-    createData(
-      "01/06/2024",
-      "SATURDAY",
-      "9AM-6PM",
-      "LATE",
-      "09:02:09 AM",
-      "06:06:06 PM",
-      "09:03:56",
-      "habi jabi"
-    ),
   ];
 
   const row2 = [
@@ -285,14 +285,22 @@ export default function PdfTable() {
         </View>
         <View style={styles.employeeInfo}>
           <View>
-            <Text>Employee Name: Shofiqul Islam</Text>
-            <Text>Employee ID: 54731</Text>
-            <Text>Designation: 54731</Text>
+            <Text>
+              Employee Name: {"    "}
+              <Text style={styles.name}>Shofiqul Islam</Text>
+            </Text>
+            <Text>
+              Employee ID: {"         "} <Text style={styles.id}>54731</Text>{" "}
+            </Text>
+            <Text>
+              Designation: {"           "}
+              <Text style={styles.desing}>Principal Officer</Text>
+            </Text>
           </View>
           <View>
-            <Text>Department: ICT</Text>
-            <Text>Section: Commercial Operations</Text>
-            <Text>Report Duration: 01/06/2024 To 30/06/2024</Text>
+            <Text>Department:{"            "} ICT</Text>
+            <Text>Section:{"                   "} Commercial Operations</Text>
+            <Text>Report Duration: {"     "} 01/06/2024 To 30/06/2024</Text>
           </View>
           <View></View>
         </View>
@@ -325,7 +333,7 @@ export default function PdfTable() {
             ))}
           </View>
         </View>
-        {/* out status & present status */}
+        {/* out status & present status tables */}
         <View style={styles.tableSeparation}>
           {/* table 2.1 */}
           <View style={styles.tableContainer}>
@@ -355,7 +363,7 @@ export default function PdfTable() {
                 <Text style={styles.tableColHeader3}>STATUS</Text>
                 <Text style={styles.tableColHeader3}>TOTAL</Text>
               </View>
-              {row2.map((row, index) => (
+              {row3.map((row, index) => (
                 <View style={styles.tableRow3} key={index}>
                   <Text style={styles.tableCol3}>{row.status}</Text>
                   <Text style={styles.tableCol3}>{row.total}</Text>
