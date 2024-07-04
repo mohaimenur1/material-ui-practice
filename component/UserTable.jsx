@@ -72,6 +72,16 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 
+  footer: {
+    position: "absolute",
+    fontSize: 8,
+    bottom: 20,
+    left: 0,
+    right: 0,
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+
   //------------ second table start --------------
   table2: {
     display: "table",
@@ -2554,126 +2564,6 @@ export default function PdfTable() {
       "09:03:56",
       "habi jabi"
     ),
-    createData(
-      "01/06/2024",
-      "SATURDAY",
-      "9AM-6PM",
-      "LATE",
-      "09:02:09 AM",
-      "06:06:06 PM",
-      "09:03:56",
-      "habi jabi"
-    ),
-    createData(
-      "01/06/2024",
-      "SATURDAY",
-      "9AM-6PM",
-      "LATE",
-      "09:02:09 AM",
-      "06:06:06 PM",
-      "09:03:56",
-      "habi jabi"
-    ),
-    createData(
-      "01/06/2024",
-      "SATURDAY",
-      "9AM-6PM",
-      "LATE",
-      "09:02:09 AM",
-      "06:06:06 PM",
-      "09:03:56",
-      "habi jabi"
-    ),
-    createData(
-      "01/06/2024",
-      "SATURDAY",
-      "9AM-6PM",
-      "LATE",
-      "09:02:09 AM",
-      "06:06:06 PM",
-      "09:03:56",
-      "habi jabi"
-    ),
-    createData(
-      "01/06/2024",
-      "SATURDAY",
-      "9AM-6PM",
-      "LATE",
-      "09:02:09 AM",
-      "06:06:06 PM",
-      "09:03:56",
-      "habi jabi"
-    ),
-    createData(
-      "01/06/2024",
-      "SATURDAY",
-      "9AM-6PM",
-      "LATE",
-      "09:02:09 AM",
-      "06:06:06 PM",
-      "09:03:56",
-      "habi jabi"
-    ),
-    createData(
-      "01/06/2024",
-      "SATURDAY",
-      "9AM-6PM",
-      "LATE",
-      "09:02:09 AM",
-      "06:06:06 PM",
-      "09:03:56",
-      "habi jabi"
-    ),
-    createData(
-      "01/06/2024",
-      "SATURDAY",
-      "9AM-6PM",
-      "LATE",
-      "09:02:09 AM",
-      "06:06:06 PM",
-      "09:03:56",
-      "habi jabi"
-    ),
-    createData(
-      "01/06/2024",
-      "SATURDAY",
-      "9AM-6PM",
-      "LATE",
-      "09:02:09 AM",
-      "06:06:06 PM",
-      "09:03:56",
-      "habi jabi"
-    ),
-    createData(
-      "01/06/2024",
-      "SATURDAY",
-      "9AM-6PM",
-      "LATE",
-      "09:02:09 AM",
-      "06:06:06 PM",
-      "09:03:56",
-      "habi jabi"
-    ),
-    createData(
-      "01/06/2024",
-      "SATURDAY",
-      "9AM-6PM",
-      "LATE",
-      "09:02:09 AM",
-      "06:06:06 PM",
-      "09:03:56",
-      "habi jabi"
-    ),
-    createData(
-      "01/06/2024",
-      "SATURDAY",
-      "9AM-6PM",
-      "LATE",
-      "09:02:09 AM",
-      "06:06:06 PM",
-      "09:03:56",
-      "habi jabi"
-    ),
   ];
 
   const row2 = [
@@ -2783,6 +2673,18 @@ export default function PdfTable() {
               ))}
             </View>
           </View>
+        </View>
+        {/* footer */}
+        <View style={styles.footer} fixed>
+          <Text>Design and developed by: Walton Group</Text>
+          <Text
+            style={styles.pageNumber}
+            render={({ pageNumber, totalPages }) =>
+              `${pageNumber} / ${totalPages}`
+            }
+            fixed
+          />
+          <Text>{/* Print Date and Time: {printDate}, {printTime} */}</Text>
         </View>
       </Page>
     </Document>
