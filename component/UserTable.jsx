@@ -2583,6 +2583,8 @@ export default function PdfTable() {
       <Page style={styles.page} size={"A4"}>
         <View style={styles.heading}>
           <Text style={styles.title}>Atahar Ali Talukder Bhaban</Text>
+          <Text style={styles.title}>Atahar Ali Talukder Bhaban</Text>
+          <Text style={styles.subTitle}>Employee Wise Daily Punch Status</Text>
           <Text style={styles.subTitle}>Employee Wise Daily Punch Status</Text>
         </View>
         <View style={styles.employeeInfo}>
@@ -2601,7 +2603,6 @@ export default function PdfTable() {
           </View>
           <View>
             <Text>Department:{"            "} ICT</Text>
-            <Text>Section:{"                   "} Commercial Operations</Text>
             <Text>Report Duration: {"     "} 01/06/2024 To 30/06/2024</Text>
           </View>
           <View></View>
@@ -2627,7 +2628,29 @@ export default function PdfTable() {
                 <Text style={styles.tableCol}>{row.day}</Text>
                 <Text style={styles.tableCol}>{row.shift}</Text>
                 <Text style={styles.tableCol}>{row.status}</Text>
-                <Text style={styles.tableCol}>{row.inTime}</Text>
+                <View style={styles.tableCol}>
+                  <Text
+                    style={{
+                      border: "1px solid black",
+                      // row.status === "Weekend" ||
+                      // row.status === "Absent" ||
+                      // row.status === "Holiday"
+                      //   ? null
+                      //   : styles.splitTable
+                    }}
+                  >
+                    {/* {row.inTime.inTimeDateFormat === "Invalid Date"
+                      ? ""
+                      : row.inTime.inTimeDateFormat} */}
+                    sdfasdfsdfasdf
+                  </Text>
+                  <Text>
+                    {/* {row.inTime.inTimeFormat === "Invalid Date"
+                      ? ""
+                      : row.inTime.inTimeFormat} */}{" "}
+                    testing
+                  </Text>
+                </View>
                 <Text style={styles.tableCol}>{row.outTime}</Text>
                 <Text style={styles.tableCol}>{row.workTime}</Text>
                 <Text style={styles.tableCol}>{row.remarks}</Text>
